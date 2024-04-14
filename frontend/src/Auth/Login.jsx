@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { useCookies } from 'react-cookie'; // Import for cookie management
 
 
 function Login({setIsLoggedIn}) {
     
     const history = useHistory();
+    const [cookies, setCookie, removeCookie] = useCookies();
     
     // Estados para controlar el modal y su contenido
     const [modalOpen, setModalOpen] = useState(false);
@@ -42,9 +44,11 @@ function Login({setIsLoggedIn}) {
         try {
             const response = await axios.post('http://localhost:8080/auth/login', formData);
             const { token, authorities } = response.data; // Desestructurar el token y las autoridades
-            // Almacena el token JWT de forma segura (por ejemplo, en localStorage)
-            localStorage.setItem('token', token);
-            localStorage.setItem('authorities', JSON.stringify(authorities)); // Convertir las autoridades a JSON
+
+            // Store token and authorities securely in a cookie
+            setCookie('token', token, { maxAge: 3600, httpOnly: true });
+            setCookie('authorities', JSON.stringify(authorities), { maxAge: 3600, httpOnly: true });
+
             setIsLoggedIn(true); // Actualizar el estado de autenticación
             history.push('/home');
         } catch (error) {

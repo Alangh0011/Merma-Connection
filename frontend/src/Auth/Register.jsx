@@ -4,15 +4,26 @@ import Modal from './Modal';
 import Hero from './Hero'; // Importación del componente Hero
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { useCookies } from 'react-cookie'; // Import for cookie management
 
 function Register({setIsLoggedIn}) {
 
     const history = useHistory();
+    const [cookies, setCookie, removeCookie] = useCookies();
 
     // Estados para controlar el modal y su contenido
     const [modalOpen, setModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
     const [modalError, setModalError] = useState(false); // Nuevo estado para indicar si hay un error
+
+    useEffect(() => {
+        // Check for existing cookie on component mount
+        const isLoggedInFromCookie = cookies.isLoggedIn;
+        if (isLoggedInFromCookie) {
+            setIsLoggedIn(true);
+            history.push('/home'); // Redirect to home if already logged in
+        }
+    }, [cookies, setIsLoggedIn, navigate]); // Dependencies for useEffect
 
     // Estado para almacenar los datos del formulario
     const [formData, setFormData] = useState({
@@ -51,9 +62,10 @@ function Register({setIsLoggedIn}) {
             const response = await axios.post('http://localhost:8080/auth/nuevo', formData);
             console.log(response.data);
             const { token, authorities } = response.data; // Desestructurar el token y las autoridades
-            // Almacena el token JWT de forma segura (por ejemplo, en localStorage)
-            localStorage.setItem('token', token);
-            localStorage.setItem('authorities', JSON.stringify(authorities)); // Convertir las autoridades a JSON
+
+            // Store token and authorities securely in a cookie
+            setCookie('token', token, { maxAge: 3600, httpOnly: true }); // Secure cookie
+            setCookie('authorities', JSON.stringify(authorities), { maxAge: 3600, httpOnly: true });
             setModalMessage('Usuario registrado exitosamente');
             setModalError(false);
             setModalOpen(true);

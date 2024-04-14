@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import Agregar from '../Home-page/Agregar'
+import Agregar from './Agregar'
 
 const Hero = () => {
   return (

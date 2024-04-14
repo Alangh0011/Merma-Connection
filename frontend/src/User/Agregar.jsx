@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navbar from './Navbar';
 import Modal from '../Auth/Modal';
 import { Redirect } from 'react-router-dom';
 
@@ -75,14 +74,14 @@ const Agregar = () => {
         <div className="p-4">
             
             <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-100 shadow bg-opacity-50">
-            <h1 className="text-2xl font-bold mb-4 mt-4">Agregar Producto</h1>
+            <h1 className="text-2xl font-bold mb-4 mt-4">Agregar alimento</h1>
             <div className="mt-8">
                                     {/* Formulario de registro */}
                 <div>
-                    <label className="text-lg font-medium">Ingresa el nombre de la merma y cantidad</label>
+                    <label className="text-lg font-medium">Ingresa el producto y cantidad</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="manzana 20 piezas"
+                    placeholder="30 manzanas"
                     value={formData.nombre}
                     type='text'
                     onChange={handleChange}
@@ -92,10 +91,10 @@ const Agregar = () => {
             </div>
             <div className="mt-8">
                 <div>
-                    <label className="text-lg font-medium">Ingresa el precio total</label>
+                    <label className="text-lg font-medium">Ingresa el precio</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="$50"
+                    placeholder="$40"
                     value={formData.precio}
                     onChange={handleChange}
                     name='precio'

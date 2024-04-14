@@ -7,24 +7,26 @@ import Actualizar from './Home-page/Actualizar';
 import Agregar from './Home-page/Agregar';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/" render={(props) => <Login {...props} setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/register" component={Register} />
-        <Route path="/home">
-          {isLoggedIn ? <Home /> : <Redirect to="/login" />}
-        </Route>
-        <Route path="/login">
-          <Login setIsLoggedIn={setIsLoggedIn} />
-        </Route>
-        <Route path="/actualizar/:id" component={Actualizar} />
-        <Route path="/agregar" component={Agregar} />
-      </Switch>
-    </Router>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/" render={(props) => <Login {...props} setIsLoggedIn={setIsLoggedIn} />} />
+                <Route path="/register">
+                    <Register setIsLoggedIn={setIsLoggedIn} />
+                </Route>
+                <Route path="/home">
+                    {isLoggedIn ? <Home /> : <Redirect to="/login" />}
+                </Route>
+                <Route path="/login">
+                    <Login setIsLoggedIn={setIsLoggedIn} />
+                </Route>
+                <Route path="/actualizar/:id" component={Actualizar} />
+                <Route path="/agregar" component={Agregar} />
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;

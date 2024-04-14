@@ -21,7 +21,7 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/home">
-          {isLoggedIn ? <Home /> : <Redirect to="/login" />}
+          {isLoggedIn ? <Appl /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/actualizar/:id" component={Actualizar} />
         <Route exact path="/agregar" component={Agregar} />

@@ -6,9 +6,10 @@ import Home from './Home-page/Home';
 import Actualizar from './Home-page/Actualizar';
 import Agregar from './Home-page/Agregar';
 import Rutas from './LandingPage/Rutas';  // Ensure the import name matches the component
+import Appl from './User/App'
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <Router>

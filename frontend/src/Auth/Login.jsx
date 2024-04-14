@@ -58,14 +58,14 @@ function Login({setIsLoggedIn}) {
         <div className="flex w-full h-screen">
             <div className="w-full flex items-center justify-center lg:w-1/2 bg-gray-200">
         <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-100 shadow bg-opacity-50">
-            <h1 className="text-5xl font-semibold">WELCOME</h1>
-            <p className="font-medium text-lg text-gray-500 mt-4">Welcome back! Please enter your details</p>
+            <h1 className="text-5xl font-semibold">Merma-Connection</h1>
+            <p className="font-medium text-lg text-gray-500 mt-4">Bienvenido, inserta tus datos</p>
             <div className="mt-8">
                 <div>
-                    <label className="text-lg font-medium">User Name</label>
+                    <label className="text-lg font-medium">Nombre de usuario o correo</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="enter your name user"
+                    placeholder="ingresa tu usuario o correo"
                     value={formData.nombreUsuario}
                     onChange={handleChange}
                     name='nombreUsuario'
@@ -75,10 +75,10 @@ function Login({setIsLoggedIn}) {
             </div>
             <div className="mt-8">
                 <div>
-                    <label className="text-lg font-medium">Password</label>
+                    <label className="text-lg font-medium">Contraseña</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="enter your password"
+                    placeholder="ingresa tu contraseña"
                     type="password"
                     value={formData.password}
                     onChange={handleChange}
@@ -92,15 +92,15 @@ function Login({setIsLoggedIn}) {
                     id="remember"
                     className=""/>
                     <label htmlFor="remember"
-                    className="mt-2 font-medium text-base">Remember for 30 days</label>
+                    className="mt-2 font-medium text-base">Recordar contraseña y nombre de usuario</label>
                 </div>
-                <button className="font-medium text-base text-green-500">Forgot password</button>
+                <button className="font-medium text-base text-green-500">Olvide mi contraseña</button>
             </div>
             <div className="mt-1 flex justify-between items-center">
-                <p className="mt-1 font-medium text-base">You do not have an account?</p>
+                <p className="mt-1 font-medium text-base">¿No tienes cuenta?</p>
                 <Link 
                 className="font-medium text-base text-green-500"
-                to="/register">Go to Register</Link>
+                to="/register">Registrate</Link>
             </div>
             <div className="mt-8 flex flex-col gap-y-4">
                 <button 

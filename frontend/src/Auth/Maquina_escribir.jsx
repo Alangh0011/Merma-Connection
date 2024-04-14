@@ -3,7 +3,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 const MaquinaEscribir = () => {
     const [text] = useTypewriter({
-        words: ["React", "TailwindCSS", "SpringBoot", "Vite", "MySQL"],
+        words: ["Ricardo", "Alan", "Fernando"],
         loop: true, // Para repetir la animación
         delay: 100, // Velocidad de escritura
         deleteSpeed: 100, // Velocidad de borrado
@@ -12,7 +12,7 @@ const MaquinaEscribir = () => {
     return (
         <div className='App'>
             <span className="text-center text-base font-medium mix-blend-difference md:text-xl">
-            Esta es una página realizada con: {text}
+            Esta es una página fue realizada por: {text}
             </span>
             <Cursor cursorStyle='|' />
         </div>

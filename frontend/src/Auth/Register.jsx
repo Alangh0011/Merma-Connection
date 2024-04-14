@@ -71,15 +71,15 @@ function Register() {
     <div className="flex w-full h-screen">
         <div className="w-full flex items-center justify-center lg:w-1/2 bg-gray-200">
         <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-100 shadow bg-opacity-50">
-            <h1 className="text-5xl font-semibold">WELCOME</h1>
-            <p className="font-medium text-lg text-gray-500 mt-4">Welcome back! Please enter your details</p>
+            <h1 className="text-5xl font-semibold">Bienvenido</h1>
+            <p className="font-medium text-lg text-gray-500 mt-4">Bienvenido! Ingresa tus datos</p>
             <div className="mt-8">
                                     {/* Formulario de registro */}
                 <div>
                     <label className="text-lg font-medium">Email</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="enter your email"
+                    placeholder="ingresa tu email"
                     value={formData.email}
                     type='email'
                     onChange={handleChange}
@@ -89,10 +89,10 @@ function Register() {
             </div>
             <div className="mt-8">
                 <div>
-                    <label className="text-lg font-medium">Name complete</label>
+                    <label className="text-lg font-medium">Nombre Completo</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="enter your name complete"
+                    placeholder="ingresa tu nombre completo"
                     value={formData.nombre}
                     onChange={handleChange}
                     name='nombre'
@@ -102,10 +102,10 @@ function Register() {
             </div>
             <div className="mt-8">
                 <div>
-                    <label className="text-lg font-medium">Name user</label>
+                    <label className="text-lg font-medium">Nombre de usuario</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="enter your name user"
+                    placeholder="ingresa tu usuario"
                     value={formData.nombreUsuario}
                     onChange={handleChange}
                     name='nombreUsuario'
@@ -115,10 +115,10 @@ function Register() {
             </div>
             <div className="mt-8">
                 <div>
-                    <label className="text-lg font-medium">Password</label>
+                    <label className="text-lg font-medium">Contraseña</label>
                     <input
                     className="w-full border-2 border-gray-100 rounded-md px-4 py-2 mt-2 bg-transparent"
-                    placeholder="enter your password"
+                    placeholder="ingresa tu contraseña"
                     type="password"
                     value={formData.password}
                     onChange={handleChange}
@@ -128,7 +128,7 @@ function Register() {
             </div>
             <div className="mt-8 flex justify-between items-center">
             <div>
-                    <label className="text-lg font-medium">Choose a role:</label>
+                    <label className="text-lg font-medium">Elige un rol:</label>
                     <div className="flex items-center mt-2">
                         <input
                             type="radio"
@@ -139,7 +139,7 @@ function Register() {
                             onChange={handleRoleChange}
                             className="mr-2"
                         />
-                        <label htmlFor="user" className="mr-4">Usuario</label>
+                        <label htmlFor="user" className="mr-4">Empresa</label>
                         <input
                             type="radio"
                             id="admin"
@@ -149,18 +149,18 @@ function Register() {
                             onChange={handleRoleChange}
                             className="mr-2"
                         />
-                        <label htmlFor="admin">Admin</label>
+                        <label htmlFor="admin">Persona</label>
                     </div>
                 </div>
             </div>
             <div className="mt-1 flex justify-between items-center">
                 <p className="mt-1 font-medium text-base">
-                    Do you already have an account?</p>
+                    ¿Ya tienes una cuenta?</p>
                         {/* Enlace para redirigir a la página de Login */}
 
                 <Link 
                 className="font-medium text-base text-green-500"
-                to="/login">Go to Login</Link>
+                to="/login">Login</Link>
 
             </div>
                     {/* Botón para enviar el formulario */}

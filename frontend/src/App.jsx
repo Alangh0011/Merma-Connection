@@ -5,6 +5,7 @@ import Register from './Auth/Register';
 import Home from './Home-page/Home';
 import Actualizar from './Home-page/Actualizar';
 import Agregar from './Home-page/Agregar';
+import Appl from './User/App'
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,7 +18,7 @@ function App() {
                     <Register setIsLoggedIn={setIsLoggedIn} />
                 </Route>
                 <Route path="/home">
-                    {isLoggedIn ? <Home /> : <Redirect to="/login" />}
+                    {isLoggedIn ? <Appl /> : <Redirect to="/login" />}
                 </Route>
                 <Route path="/login">
                     <Login setIsLoggedIn={setIsLoggedIn} />

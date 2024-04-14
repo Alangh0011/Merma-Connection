@@ -5,6 +5,7 @@ import Register from './Auth/Register';
 import Home from './Home-page/Home';
 import Actualizar from './Home-page/Actualizar';
 import Agregar from './Home-page/Agregar';
+import Rutas from './LandingPage/Rutas';  // Ensure the import name matches the component
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,20 +13,27 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" render={(props) => <Login {...props} setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/register" component={Register} />
-        <Route path="/home">
-          {isLoggedIn ? <Home /> : <Redirect to="/login" />}
-        </Route>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login setIsLoggedIn={setIsLoggedIn} />
         </Route>
-        <Route path="/actualizar/:id" component={Actualizar} />
-        <Route path="/agregar" component={Agregar} />
+        <Route exact path="/register">
+          <Register />
+        </Route>
+        <Route exact path="/home">
+          {isLoggedIn ? <Home /> : <Redirect to="/login" />}
+        </Route>
+        <Route exact path="/actualizar/:id" component={Actualizar} />
+        <Route exact path="/agregar" component={Agregar} />
+        <Route exact path="/">
+          <Rutas />
+        </Route>
+        {/* Optional: Handle unmatched routes */}
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </Router>
   );
 }
 
 export default App;
-

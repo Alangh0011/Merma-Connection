@@ -3,7 +3,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 const MaquinaEscribir = () => {
     const [text] = useTypewriter({
-        words: ["Ricardo", "Alan", "Fernando"],
+        words: ["Ricardo", "Alan", "Fernando", "Juan"],
         loop: true, // Para repetir la animación
         delay: 100, // Velocidad de escritura
         deleteSpeed: 100, // Velocidad de borrado
